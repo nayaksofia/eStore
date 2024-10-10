@@ -5,10 +5,12 @@
 <title>Welcome</title>
 </head>
 <body>
-	
+
 	<center>
 		<h3>Welcome to eStore </h3>
 		<h3>Login Here with Your Details</h3>
+		
+		<!-- <form action="Front"  method="post"> -->
 		
 		<form action="Login"  method="post">
 			
@@ -18,6 +20,9 @@
 		
 		<b>Enter Your Password: </b> <br>
 		<input type="password" name="textPassword" placeholder="minimum 6 characters"/>
+		
+		<!-- Add hidden value : login -->
+		<input type="hidden" value="login" name="txtType">
 		<br>
 		
 		<input type="submit" value="LOGIN"/>
