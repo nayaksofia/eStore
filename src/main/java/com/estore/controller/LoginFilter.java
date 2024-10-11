@@ -26,11 +26,27 @@ public class LoginFilter extends HttpFilter implements Filter {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print("<center>");
+		
+	   //Pre-Processing (Filtering Request from Client to Servlet)
+	   //pass the request along the filter chain
 		out.print("<h3>Pre-Processing</h3>");
 		
-		//Pre-Processing (Filtering Request from Client to Servlet)
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
+		String email = request.getParameter("textEmail");
+		String password = request.getParameter("textPassword");
+		
+		
+		if(email.isEmpty() || password.isEmpty()) {	
+			
+			out.print("<h3>Sorry !!! Email and Password Can not be Blank. </h3>");
+			
+		}else {
+			
+			//Forwarding the request: pass the data to LoginServlet
+			chain.doFilter(request, response);
+		}
+		
+		
+	
 		
 		//Post-Processing (Filtering Response from the Servlet to the client)
 		out.print("<h3>Post-Processing</h3>");
