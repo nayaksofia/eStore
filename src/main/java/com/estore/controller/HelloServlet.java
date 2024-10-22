@@ -41,11 +41,14 @@ public class HelloServlet extends HttpServlet {
 	response.setContentType("text/html");
 	PrintWriter out = response.getWriter();
 	
-	String htmlResponse = "<center><h3>Welcome To Home</h3>" 
+	String htmlResponse = "<center><h3>Welcome To Home Admin</h3>" 
 	                 + "<p>Requested Served at" 
-			         +new Date() 
-			         + " </p>";
+			         +new Date()+"</p> <br>"
+			         + "<p><a href='add-products.html'> ADD PRODUCTS </a></p>";
+	                
 	out.print(htmlResponse);
+	
+	/*
 	
 	//1. Session Tracking With Cookies
 	//Reading Cookies : In array  
@@ -83,6 +86,8 @@ public class HelloServlet extends HttpServlet {
 	
 	out.print("<p><b>HttpSession Object Data<b></p>");
 	out.print("<p>NAME:"+ data.get("name")+" |  SALES: "+ data.get("sales") + "</p>");
+	
+	*/
 	
 	out.print("</center>");
 	
