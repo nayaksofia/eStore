@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 	  response.setContentType("text/html");
 	  PrintWriter out = response.getWriter();
 	  out.print("<center>");
-	  out.print("<p> Welcome To eShop !!! <br> <a href='Home' >Click to Navigate to Home. </a></p>");
+	  out.print("<p> Welcome To eShop !!! <br> <a href='Home' >Click Here to Navigate to Home. </a></p>");
 	  
 	  /*
 	  String message = " ";
