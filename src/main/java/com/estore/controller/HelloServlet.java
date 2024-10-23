@@ -42,7 +42,7 @@ public class HelloServlet extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	
 	String htmlResponse = "<center><h3>Welcome To Home Admin</h3>" 
-	                 + "<p>Requested Served at" 
+	                 + "<p>Requested Served at  " 
 			         +new Date()+"</p> <br>"
 			         + "<p><a href='add-products.html'> ADD PRODUCTS </a></p>";
 	                

@@ -3,6 +3,7 @@ package com.estore.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.estore.model.Product;
 
@@ -60,8 +61,8 @@ public class DB {
 		try {
 			connection.close();
 			System.out.println("[DB] Connection to DB Closed");
-		}catch (Exception e){
-			
+		}catch (SQLException e){
+			e.printStackTrace();
 		}
 	}
 	
