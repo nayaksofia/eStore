@@ -74,6 +74,22 @@
     <url-pattern>/ViewProducts</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <description></description>
+    <display-name>DeleteProductController</display-name>
+    <servlet-name>DeleteProductController</servlet-name>
+    <servlet-class>com.estore.controller.DeleteProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductController</servlet-name>
+    <url-pattern>/DeleteProductController</url-pattern>
+    <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
   
   <servlet>
     <description></description>

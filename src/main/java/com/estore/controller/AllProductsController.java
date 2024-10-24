@@ -23,6 +23,7 @@ public class AllProductsController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.print("<center>");
+		out.print("<h3>All Products</h3>");
 		
 		DB db = new DB();
 		ArrayList<Product> products = db.fetchAllProduct();
@@ -40,15 +41,17 @@ public class AllProductsController extends HttpServlet {
 			buffer.append("<td>CODE </td>");
 			buffer.append("<td>NAME </td>");
 			buffer.append("<td>PRICE </td>");
+			buffer.append("<td>ACTION </td>");
 			buffer.append("</tr>");
 			
 			
 			for(Product product : products) {
 				buffer.append("<tr>");
-				buffer.append("<td>"+ product.id+ "</td>");
+				buffer.append("<td>"+ product.id +"</td>");
 				buffer.append("<td>" + product.code + "</td>");
 				buffer.append("<td>" + product.name + "</td>");
-				buffer.append("<td>" +product.price + " </td>");
+				buffer.append("<td>" + product.price + " </td>");
+				buffer.append("<td><a href='Delete?id="+product.id+"'>DELETE</a> | <a href=' '>UPDATE</a> </td>"); //Using Session Tracking Technique
 				buffer.append("</tr>");
 				
 			}

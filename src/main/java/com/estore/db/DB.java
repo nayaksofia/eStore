@@ -35,7 +35,7 @@ public class DB {
 		
 	}
 	
-	//Method To write mySQL statement : To AddProduct
+	//Method To AddProduct
 	public int addProduct(Product product) {
 		int result = 0;
 		
@@ -88,6 +88,29 @@ public class DB {
 		 return products;
 	 }
 	
+	 ///Method To Update the Product
+	 
+	 //Method To Delete the Product
+	 public int deleteProduct(int id) {
+			int result = 0;
+			
+			try {
+				
+				String sql = "delete from Product where id=? ";
+				
+				preparedStatement = connection.prepareStatement(sql);	
+				preparedStatement.setInt(1, id); //1st Column Id
+				
+				
+				result = preparedStatement.executeUpdate();
+				
+			}catch (Exception e) {
+				System.out.println("Something went wrong!!! "+e);
+			}
+			
+			return result;
+			
+		}
 	 
 	 
 	//Method To Close Connection
