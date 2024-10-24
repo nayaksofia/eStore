@@ -26,6 +26,8 @@ public class ProductController extends HttpServlet {
 		product.name = request.getParameter("textName");
 		product.price = Integer.parseInt(request.getParameter("textPrice"));
 		
+		System.out.println("[Product Servlet] Product Details: " + product);
+		
 		
 		//Instance of DB Class
 		DB db = new DB();
@@ -45,7 +47,8 @@ public class ProductController extends HttpServlet {
 			message = product.name + " Not Added in the Database, Please Try Again";
 		}
 		
-		out.print("<p>" + message + "</p>");
+		out.print("<p>" + message + "</p><br><br>");
+		out.print("<h3><a href='Home'>Back Home:Click  </a></h3>");
 		
 		out.print("</center>");
 	}

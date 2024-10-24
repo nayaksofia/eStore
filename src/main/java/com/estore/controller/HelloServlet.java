@@ -43,8 +43,9 @@ public class HelloServlet extends HttpServlet {
 	
 	String htmlResponse = "<center><h3>Welcome To Home Admin</h3>" 
 	                 + "<p>Requested Served at  " 
-			         +new Date()+"</p> <br>"
-			         + "<p><a href='add-products.html'> ADD PRODUCTS </a></p>";
+			         +  new Date()+"</p> <br>"
+			         + "<p><a href='add-products.html'> ADD PRODUCTS </a></p>"
+			         + "<p><a href='ViewProducts'> VIEW PRODUCTS </a></p>";  //Provided the URL Pattern of AllProductsController.java servlet ,which include  UI format to fetch datails
 	                
 	out.print(htmlResponse);
 	

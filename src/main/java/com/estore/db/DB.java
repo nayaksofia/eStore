@@ -3,7 +3,9 @@ package com.estore.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.estore.model.Product;
 
@@ -56,6 +58,38 @@ public class DB {
 	}
 	
 	
+	//Method To[mySQL statement]: Fetch Data From Database 
+	 public ArrayList<Product> fetchAllProduct(){
+		
+		 ArrayList<Product> products = new ArrayList<Product>();
+		 
+		 try {
+			 String sql1 = "select * from Product";
+			 preparedStatement = connection.prepareStatement(sql1);
+			 
+			 ResultSet set = preparedStatement.executeQuery();
+			 
+			 while(set.next()) {
+				 
+				 Product product = new Product();
+				 product.id = set.getInt(1);  //Column 1
+				 product.code = set.getInt(2);  //Column 2
+				 product.name = set.getString(3); //Column 3
+				 product.price = set.getInt(4);  //Column 4
+				 
+				 products.add(product);
+			 }
+			 
+			 
+		 }catch(Exception e) {
+			 System.out.println("Something Went Wrong: " +e);
+		 }
+		 
+		 return products;
+	 }
+	
+	 
+	 
 	//Method To Close Connection
 	public void closeConnection() {
 		try {

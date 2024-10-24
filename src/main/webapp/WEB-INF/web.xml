@@ -62,6 +62,21 @@
   
   <servlet>
     <description></description>
+    <display-name>AllProductsController</display-name>
+    <servlet-name>AllProductsController</servlet-name>
+    <servlet-class>com.estore.controller.AllProductsController</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>AllProductsController</servlet-name>
+    <url-pattern>/AllProductsController</url-pattern>
+    <url-pattern>/ViewProducts</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <description></description>
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>com.estore.controller.FrontController</servlet-class>
