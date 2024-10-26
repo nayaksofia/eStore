@@ -32,7 +32,7 @@ public class AllProductsController extends HttpServlet {
 		
 		
 		if(products.size() > 0) {
-			
+	
 			//Create Table In This Buffer
 			buffer.append("<table>");
 			
@@ -51,7 +51,7 @@ public class AllProductsController extends HttpServlet {
 				buffer.append("<td>" + product.code + "</td>");
 				buffer.append("<td>" + product.name + "</td>");
 				buffer.append("<td>" + product.price + " </td>");
-				buffer.append("<td><a href='Delete?id="+product.id+"'>DELETE</a> | <a href=' '>UPDATE</a> </td>"); //Using Session Tracking Technique
+				buffer.append("<td><a href='Delete?id="+product.id+"'>DELETE</a> | <a href='Update?id="+product.id+"'>UPDATE</a> </td>"); //Using Session Tracking Technique
 				buffer.append("</tr>");
 				
 			}
@@ -66,7 +66,7 @@ public class AllProductsController extends HttpServlet {
 		out.print(buffer.toString());
 		
 
-		out.print("<h3><a href='Home'>Back To Home</a></h3> <br> <br>");
+		out.print("<h3><a href='Home'> Back </a></h3> <br> <br>");
 		
 		out.print("</center>");
 		

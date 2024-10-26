@@ -35,6 +35,7 @@ public class DB {
 		
 	}
 	
+	
 	//Method To AddProduct
 	public int addProduct(Product product) {
 		int result = 0;
@@ -43,6 +44,7 @@ public class DB {
 			
 			String sql = "insert into Product values(null, ?, ?, ?)";
 			preparedStatement = connection.prepareStatement(sql);	
+			
 			preparedStatement.setInt(1, product.code);
 			preparedStatement.setString(2, product.name);
 			preparedStatement.setInt(3, product.price);
@@ -50,7 +52,7 @@ public class DB {
 			result = preparedStatement.executeUpdate();
 			
 		}catch (Exception e) {
-			System.out.println("Something went wrong!!! "+e);
+			System.out.println("Something went wrong during adding product values!!! "+e);
 		}
 		
 		return result;
@@ -58,14 +60,15 @@ public class DB {
 	}
 	
 	
-	//Method To[mySQL statement]: Fetch Data From Database 
+	//Method to : Fetch All Data From Database 
 	 public ArrayList<Product> fetchAllProduct(){
 		
 		 ArrayList<Product> products = new ArrayList<Product>();
 		 
 		 try {
-			 String sql1 = "select * from Product";
-			 preparedStatement = connection.prepareStatement(sql1);
+			 String sql = "select * from Product";
+			 
+			 preparedStatement = connection.prepareStatement(sql);
 			 
 			 ResultSet set = preparedStatement.executeQuery();
 			 
@@ -82,13 +85,78 @@ public class DB {
 			 
 			 
 		 }catch(Exception e) {
-			 System.out.println("Something Went Wrong: " +e);
+			 System.out.println("Something Went Wrong During Fetching All Data : " +e);
 		 }
 		 
 		 return products;
 	 }
 	
-	 ///Method To Update the Product
+	 
+	 // Method to fetch product by Id 
+	 public Product fetchProductById(int id) {
+		
+		 Product product = null;
+		
+		try {
+			
+			//SQL query to select a product by ID
+			String sql = "select * from Product where id = ?  ";
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			
+			//Execute the query
+
+			 ResultSet set = preparedStatement.executeQuery();
+			 
+			 //Check while a product was found 
+			 while(set.next()) {
+				product = new Product();
+				
+				product.id = set.getInt("id");
+				product.code = set.getInt("code");
+				product.name =set.getString("name");
+				product.price = set.getInt("price");
+				
+			 }
+			
+			
+			
+		}catch(SQLException e) {
+			System.out.println("Something went wrong while fetching product by ID: " + e);
+		}
+		
+		return product; //Return the product object / null if not found 
+	 }
+	 
+	 
+	 
+	 ///Method To Update the Product By Id
+	 public int updateProduct(Product product) {
+			int result = 0;
+			
+			try {
+				
+				String sql = "UPDATE Product SET code = ?, name = ?, price = ? WHERE id = ?";
+				
+				preparedStatement = connection.prepareStatement(sql);	
+				
+				preparedStatement.setInt(1, product.code); 
+				preparedStatement.setString(2, product.name);
+				preparedStatement.setInt(3, product.price); 
+				preparedStatement.setInt(4,product.id); 
+				
+				//Execute the update query
+				result = preparedStatement.executeUpdate();
+				
+			}catch (SQLException e) {
+				System.out.println("Something went wrong during updater!!! "+e);
+			}
+			
+			return result;
+			
+		}
+	 
 	 
 	 //Method To Delete the Product
 	 public int deleteProduct(int id) {
@@ -104,7 +172,7 @@ public class DB {
 				
 				result = preparedStatement.executeUpdate();
 				
-			}catch (Exception e) {
+			}catch (SQLException e) {
 				System.out.println("Something went wrong!!! "+e);
 			}
 			

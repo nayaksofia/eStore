@@ -45,7 +45,10 @@ public class HelloServlet extends HttpServlet {
 	                 + "<p>Requested Served at  " 
 			         +  new Date()+"</p> <br>"
 			         + "<p><a href='add-products.html'> ADD PRODUCTS </a></p>"
-			         + "<p><a href='ViewProducts'> VIEW PRODUCTS </a></p>";  //Provided the URL Pattern of AllProductsController.java servlet ,which include  UI format to fetch datails
+			         + "<p><a href='ViewProducts'> VIEW PRODUCTS </a></p>"
+			         + "<p><a href = 'index.html'>Logout </a></p>" ;  
+	
+	//Note: Provided the URL Pattern of AllProductsController.java servlet ,which include  UI format to fetch datails
 	                
 	out.print(htmlResponse);
 	

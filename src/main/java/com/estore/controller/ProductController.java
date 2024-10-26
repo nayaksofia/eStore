@@ -22,6 +22,7 @@ public class ProductController extends HttpServlet {
 		
 		//create Instance of Product Class
 		Product product = new Product();
+		
 		product.code = Integer.parseInt(request.getParameter("textCode"));
 		product.name = request.getParameter("textName");
 		product.price = Integer.parseInt(request.getParameter("textPrice"));
@@ -48,7 +49,7 @@ public class ProductController extends HttpServlet {
 		}
 		
 		out.print("<p>" + message + "</p><br><br>");
-		out.print("<h3><a href='Home'>Back Home:Click  </a></h3>");
+		out.print("<h3><a href='Home'>Back</a></h3>");
 		
 		out.print("</center>");
 	}
