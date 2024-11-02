@@ -21,6 +21,34 @@
   
   <servlet>
     <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.estore.controller.UserServlet</servlet-class>
+    
+    <init-param>
+      <param-name>appName</param-name>
+      <param-value>eStore - Web App</param-value>
+    </init-param>
+    
+     <init-param>
+      <param-name>accessToken</param-name>
+      <param-value>1200AB9A</param-value>
+    </init-param>
+    
+     <init-param>
+      <param-name>memoryUsageThreshold</param-name>
+      <param-value>e16</param-value>
+    </init-param>
+    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+    <url-pattern>/User</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.estore.controller.LoginServlet</servlet-class>
